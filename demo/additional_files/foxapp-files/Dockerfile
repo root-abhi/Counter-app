@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     libnginx-mod-http-lua \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /etc/nginx/sites-enabled/default \
+    && rm -rf /etc/nginx/sites-available/default
 
 COPY foxapp.conf /etc/nginx/conf.d/default.conf
 
