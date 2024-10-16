@@ -10,7 +10,7 @@ exporterPort: "8001"
 serverUrl: "http://foxapp-service.ltx.svc"
 
 exporter:
-  image: "rootasch/json-exporter:0.1.1"
+  image: "rootasch/json-exporter:0.1.2"
   port: 8001
 
 
