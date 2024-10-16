@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment_name }} 
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: foxapp
+  template:
+    metadata:
+      labels:
+        app: foxapp
+    spec:
+      containers:
+      - name: foxapp
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "300Mi"   
+            cpu: "200m"       
+          limits:
+            memory: "1Gi"     
+            cpu: "1"          
+

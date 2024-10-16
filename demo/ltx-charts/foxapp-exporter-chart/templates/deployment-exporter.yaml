@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foxapp-exporter
+  labels:
+    app: foxapp-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foxapp-exporter
+  template:
+    metadata:
+      labels:
+        app: foxapp-exporter
+    spec:
+      containers:
+      - name: foxapp-exporter
+        image: rootasch/demo:fox-exporter2
+        ports:
+        - containerPort: 8001 ## Use port from values.yaml
+#        readinessProbe:
+#          httpGet:
+#            path: /
+#            port: {{ .Values.exporter.port }} ## Port from values.yaml
+#          initialDelaySeconds: 5
+#          periodSeconds: 10
+#        livenessProbe:
+#          httpGet:
+#            path: /
+#            port: {{ .Values.exporter.port }} ## Port from values.yaml
+#          initialDelaySeconds: 5
+#          periodSeconds: 10
+

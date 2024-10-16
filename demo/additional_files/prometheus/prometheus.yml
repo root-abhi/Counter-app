@@ -1,0 +1,20 @@
+
+global:
+  scrape_interval: 15s  
+
+scrape_configs:
+  - job_name: 'json_app'
+    metrics_path: "/"  
+    json: true  
+    kubernetes_sd_configs:
+      - role: service  
+
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_service_name]
+        regex: foxapp-service
+        action: keep  
+
+    static_configs:
+      - targets:
+          - 'foxapp-service.ltx.svc.cluster.local'  
+

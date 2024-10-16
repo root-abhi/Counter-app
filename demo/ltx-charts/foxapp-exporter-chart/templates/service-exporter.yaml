@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foxapp-exporter
+  labels:
+    app: foxapp-exporter
+spec:
+  ports:
+  - port: {{ .Values.exporter.port }} # Use port from values.yaml
+    targetPort: {{ .Values.exporter.port }} # Use port from values.yaml
+  selector:
+    app: foxapp-exporter
+  type: ClusterIP
+

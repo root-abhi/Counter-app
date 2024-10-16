@@ -1,0 +1,8 @@
+## Chart can be used in HELM 3
+apiVersion: v2
+name: foxapp-chart
+description:  Helm chart for the Fox App
+version: 0.1.0
+maintainer: 
+  - name: Abhishek Chauhan
+    email: abhi107070@gmail.com

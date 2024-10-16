@@ -1,0 +1,33 @@
+###Description and Goals:
+** This is a POC of keda scaling in K8s with prometheus monitoring, exporter and counter app. 
+** The goal of creating these charts are "To create Check if the scaling of the Fox app is working properly using GET requests to the counter Service endpoints".
+
+###Assumptions:
+** These charts are downloeded and run on local machine, which has connected Kubernetes Cluster.
+
+###PreRequities: 
+** Connected K8s cluster.
+
+###Limitations:
+** The only limitation is promethues, that will be accessed on <Load-Balancer>:9090, since it's not handled in Proxy. 
+** Instead of http_foxes_count, metrics name is foxes_count_total, so search for "foxes_count_total" in promethues. 
+** Pods can't go below 1 and above 10, this is the limit. 
+
+###Content: 
+** This directory below mention things: 
+- HELM Charts (ltx-charts): To deployment Foxapp counter application, prometheus, and log exporter. 
+- Other Files (additional_files): Files like Dockerfile and other scripts are under directory, each app has it's own directory and files. 
+ 
+
+####How to Deploy and Test: 
+
+** There are two scrips to deploy and destroy entire setup, one-click-deployment.sh & one-click-delete.sh, both files are under ltx-charts directory. 
+
+** run "sh one-click-deployment.sh", this will deploy all the charts and print Promethues and Foxapp external IP. 
+
+** curl <External-IP/plusone to add nodes, first request will not add pod, but as soon as count increases to 2, pods will start adding.
+
+** run "sh one-click-delete.sh" once the testing is completed, this will delete all the resources except namespaces (for safety reasons). 
+
+### for any questions: please free to drop and email at abhi107070@gmail.com.
+ 

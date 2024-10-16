@@ -1,0 +1,7 @@
+## This chart is to be used in HELM3 only 
+apiVersion: v2
+name: foxapp-exporter
+description: A Helm chart for deploying the foxapp-exporter
+version: 0.1.0
+appVersion: "1.0.0"
+

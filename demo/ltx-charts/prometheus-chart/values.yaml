@@ -1,0 +1,31 @@
+# prometheus-chart/values.yaml
+namespace: ltx
+
+serviceAccount:
+  name: prometheus
+
+clusterRole:
+  name: prometheus
+
+clusterRoleBinding:
+  name: prometheus
+
+configMap:
+  name: prometheus-config
+  scrape_interval: 15s
+  exporter_target: foxapp-exporter.ltx.svc.cluster.local:8001
+
+deployment:
+  name: prometheus-deployment
+  replicaCount: 1
+  image:
+    repository: rootasch/poc
+    tag: prometheus
+  containerName: prometheus-container  # Update with a valid name
+  containerPort: 9090
+
+service:
+  name: prometheus-service
+  type: LoadBalancer
+  port: 9090
+

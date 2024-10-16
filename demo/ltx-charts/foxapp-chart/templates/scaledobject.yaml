@@ -1,0 +1,24 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ .Values.scaledObject.name | default "foxapp-scaledobject" }}
+  namespace: {{ .Values.namespace | default "ltx" }}
+spec:
+  scaleTargetRef:
+    name: {{ .Values.scaleTargetRef.name | default "ltx-foxapp" }}
+    apiVersion: apps/v1
+    kind: Deployment
+  pollingInterval: {{ .Values.pollingInterval | default 5 }}
+  cooldownPeriod: {{ .Values.cooldownPeriod | default 30 }}
+  minReplicaCount: {{ .Values.minReplicaCount | default 1 }}
+  maxReplicaCount: {{ .Values.maxReplicaCount | default 10 }}
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: {{ .Values.prometheus.serverAddress | default "http://prometheus-service.ltx.svc:9090" }}
+        metricName: {{ .Values.prometheus.metricName | default "foxes_count_total" }}
+        query: |
+          {{ .Values.prometheus.query | default "sum(foxex_count_total)" }}
+        threshold: "{{ .Values.prometheus.threshold | default "1" }}"  
+        targetValue: "{{ .Values.prometheus.targetValue | default "1" }}"  
+

@@ -1,0 +1,4 @@
+exporter:
+  image: "rootasch/demo:foxexporter"
+  port: 8001
+

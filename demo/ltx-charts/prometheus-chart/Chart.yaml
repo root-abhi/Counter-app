@@ -1,0 +1,6 @@
+# prometheus-chart/Chart.yaml
+apiVersion: v2
+name: prometheus
+description: A Helm chart for deploying Prometheus
+version: 0.1.0
+
