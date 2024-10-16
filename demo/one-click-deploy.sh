@@ -27,6 +27,8 @@ if [ $? -ne 0 ]; then
     echo "Failed to install KEDA"
     exit 1
 fi
+echo "Waiting for 1 minute to allow KEDA to initialize..."
+sleep 60
 
 echo "Deploying foxapp..."
 helm install foxapp ./ltx-charts/foxapp-chart --namespace ltx --create-namespace
