@@ -20,7 +20,7 @@ deployment:
   replicaCount: 1
   image:
     repository: rootasch/prometheus
-    tag: 0.1.1
+    tag: 0.1.2
   containerName: prometheus-container  
   containerPort: 9090
 
