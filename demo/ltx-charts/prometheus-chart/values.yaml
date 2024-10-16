@@ -19,9 +19,9 @@ deployment:
   name: prometheus-deployment
   replicaCount: 1
   image:
-    repository: rootasch/poc
-    tag: prometheus
-  containerName: prometheus-container  # Update with a valid name
+    repository: rootasch/prometheus
+    tag: 0.1.1
+  containerName: prometheus-container  
   containerPort: 9090
 
 service:
