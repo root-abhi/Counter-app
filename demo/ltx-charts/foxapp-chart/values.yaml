@@ -1,6 +1,6 @@
 image:
-  repository: rootasch/demo
-  tag: foxapp
+  repository: rootasch/foxapp
+  tag: 0.1.1
 
 namespace: ltx 
 deployment_name: ltx-foxapp ## Deployment name of application
@@ -18,8 +18,8 @@ minReplicaCount: 1  ## Getting used in deployment and scaledObject both
 maxReplicaCount: 10 ## Getting used in deployment and scaledObject both
 prometheus:
   serverAddress: http://prometheus-service.ltx.svc:9090 ## monitoring server address  for scaling
-  metricName: foxes_count_total
-  query: sum(foxes_count_total)
+  metricName: http_foxes_count
+  query: sum(http_foxes_count)
   threshold: "1" 
   targetValue: "1"
 

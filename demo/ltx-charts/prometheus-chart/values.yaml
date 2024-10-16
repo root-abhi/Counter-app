@@ -14,14 +14,17 @@ configMap:
   name: prometheus-config
   scrape_interval: 15s
   exporter_target: foxapp-exporter.ltx.svc.cluster.local:8001
+  metrics_path: '/'
+#  exporter_target: foxapp-service.ltx.svc ## Enable this target to fetch metrics directly from foxapp
+#  metrics_path: '/metrics' ## enable to fetch data from foxapp
 
 deployment:
   name: prometheus-deployment
   replicaCount: 1
   image:
-    repository: rootasch/poc
-    tag: prometheus
-  containerName: prometheus-container  # Update with a valid name
+    repository: rootasch/prometheus
+    tag: 0.1.2
+  containerName: prometheus-container  
   containerPort: 9090
 
 service:
