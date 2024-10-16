@@ -8,8 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY main.py .
 
-ENV EXPORTER_PORT=8001
-ENV SERVER_URL=http://foxapp-service.ltx.svc
 
 EXPOSE ${EXPORTER_PORT}
 

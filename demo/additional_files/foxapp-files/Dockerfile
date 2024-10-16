@@ -8,8 +8,9 @@ RUN apt-get update && apt-get install -y \
     libnginx-mod-http-lua \
     && rm -rf /var/lib/apt/lists/*
 
-COPY foxapp.conf /etc/nginx/conf.d/default.conf
+COPY old-foxapp.conf /etc/nginx/conf.d/default.conf
 
+RUN rm -rf /etc/nginx/sites-available/*; rm /etc/nginx/sites-enabled/*
 RUN mkdir -p /app
 
 COPY main.py /app/main.py

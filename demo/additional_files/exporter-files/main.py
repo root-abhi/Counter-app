@@ -8,15 +8,15 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-try:
-    EXPORTER_PORT = int(os.getenv('EXPORTER_PORT', 8001))  # Default to 8001 if the variable is not set or invalid
-except ValueError:
-    logging.error("Invalid value for EXPORTER_PORT. Falling back to default port 8001.")
+#try:
+#    EXPORTER_PORT = int(os.getenv('EXPORTER_PORT', 8001))  # Default to 8001 if the variable is not set or invalid
+#except ValueError:
+#    logging.error("Invalid value for EXPORTER_PORT. Falling back to default port 8001.")
 
-SERVER = os.getenv('SERVER_URL')
+#SERVER = os.getenv('SERVER_URL')
 
-#EXPORTER_PORT = 8001 
-#SERVER = 'http://foxapp-service.ltx.svc'  
+EXPORTER_PORT = 8001 
+SERVER = 'http://foxapp-service.ltx.svc'  
 
 class CustomCollector(object):
     def __init__(self, endpoint):
