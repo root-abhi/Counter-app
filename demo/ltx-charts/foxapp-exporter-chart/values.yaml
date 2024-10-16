@@ -1,4 +1,16 @@
+
+#image:
+#  image: "rootasch/demo"
+#  tag: "foxexporter"  # Last one was xporter7
+#  port: 8001
+deployment_name: foxapp-exporter
+namespace: ltx
+replicaCount: 1
+exporterPort: "8001"
+serverUrl: "http://foxapp-service.ltx.svc"
+
 exporter:
-  image: "rootasch/demo:foxexporter"
+  image: "rootasch/demo:exporter"
   port: 8001
+
 

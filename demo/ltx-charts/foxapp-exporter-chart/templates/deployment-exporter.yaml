@@ -16,19 +16,18 @@ spec:
     spec:
       containers:
       - name: foxapp-exporter
-        image: rootasch/demo:fox-exporter2
+        image: {{ .Values.exporter.image }} # Use image from values.yaml
         ports:
-        - containerPort: 8001 ## Use port from values.yaml
+        - containerPort: {{ .Values.exporter.port }} # Use port from values.yaml
 #        readinessProbe:
 #          httpGet:
 #            path: /
-#            port: {{ .Values.exporter.port }} ## Port from values.yaml
+#            port: {{ .Values.exporter.port }} # Port from values.yaml
 #          initialDelaySeconds: 5
 #          periodSeconds: 10
 #        livenessProbe:
 #          httpGet:
 #            path: /
-#            port: {{ .Values.exporter.port }} ## Port from values.yaml
+#            port: {{ .Values.exporter.port }} # Port from values.yaml
 #          initialDelaySeconds: 5
 #          periodSeconds: 10
-
