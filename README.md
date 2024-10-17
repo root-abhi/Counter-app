@@ -14,9 +14,7 @@ An active Kubernetes cluster.
 
 **Limitations:**
 
-The limitation is with Prometheus, which will be accessible at <Load-Balancer>:9090 since it is not managed by a proxy.
-
-Pods cannot scale down below 1 or exceed 10; these are the set limits.
+Pods cannot scale down below 1 or exceed 10; these are the set limits. (if pods go to zero the the fox counter app doesn't work and defeats the purpose of poc) 
 
 Scripts work only for deployment and cleanup, upgrade taks has to be done manualy as and when required. 
 
