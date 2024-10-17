@@ -51,7 +51,7 @@ curl <External-IP>/plusone
 
 *The first request will not add a pod, but as soon as the fox count increases to 2, the pods will start to scale.**
 
-*Scale up will happen within few seconds and scale down will happen within 5 mins*
+*Scale up will happen within few seconds and scale down will happen in 5 mins + some scraping time*
 
 *After testing is completed, run the following command to delete all resources (excluding namespaces for safety):**
 
