@@ -68,6 +68,12 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 docker buildx build --no-cache --platform linux/amd64,linux/arm64 -t repo/image:tag --push .
 
+docker buildx build --no-cache  --platform linux/amd64,linux/arm64 -t rootasch/prom:0.1.1 --push .
+
+docker buildx build --no-cache  --platform linux/amd64,linux/arm64 -t rootasch/foxapp:0.1.2 --push .
+
+
+
 **NOTES:**
 When configuring Prometheus with the Fox app directly, the configuration of the scaledObject must be changed as follows:
 
@@ -75,6 +81,8 @@ For target http://foxapp-service.ltx.svc/metrics, use http_foxes_count_total.
 
 For target http://foxapp-exporter.ltx.svc.cluster.local:8001, use http_foxes_count.
 **(This distinction is due to the different metric names in the exporter)*
+
+**If pod stays in Pending it impacts the ability of scaling*
 
 
 KEDA charts are downloaded from official sources: kedacore/keda
