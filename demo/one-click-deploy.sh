@@ -19,10 +19,8 @@ check_loadbalancer_ip() {
     done
 }
 
-echo "Adding KEDA Helm repo and installing KEDA..."
-helm repo add kedacore https://kedacore.github.io/charts
-helm repo update
-helm install keda kedacore/keda --namespace keda --create-namespace
+echo "Deploying KEDA....."
+helm install keda ./ltx-charts/keda-chart --namespace keda --create-namespace
 if [ $? -ne 0 ]; then
     echo "Failed to install KEDA"
     exit 1
