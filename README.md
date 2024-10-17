@@ -18,6 +18,8 @@ The limitation is with Prometheus, which will be accessible at <Load-Balancer>:9
 
 Pods cannot scale down below 1 or exceed 10; these are the set limits.
 
+Scripts work only for deployment and cleanup, upgrade taks has to be done manualy as and when required. 
+
 **Directory Structure:**
 
 This repository contains the following components:
@@ -72,7 +74,7 @@ docker buildx build --no-cache  --platform linux/amd64,linux/arm64 -t rootasch/p
 
 docker buildx build --no-cache  --platform linux/amd64,linux/arm64 -t rootasch/foxapp:0.1.2 --push .
 
-
+docker buildx build --no-cache  --platform linux/amd64,linux/arm64 -t rootasch/json-exporter:0.1.3 --push .
 
 **NOTES:**
 When configuring Prometheus with the Fox app directly, the configuration of the scaledObject must be changed as follows:
