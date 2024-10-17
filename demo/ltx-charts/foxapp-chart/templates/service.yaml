@@ -7,7 +7,7 @@ spec:
     app: foxapp
   ports:
     - protocol: TCP
-      port: 80         ## The port your service will be accessible on (Nginx is running inside the pod)
+      port: 80         
       targetPort: 80 ## The container's port where your application is running (The port of Counter App)
-  type: LoadBalancer      ## Service type is ClusterIP which exposes the service only within the cluster
+  type: LoadBalancer     
 
