@@ -8,6 +8,6 @@ spec:
   ports:
     - protocol: TCP
       port: 80         
-      targetPort: 80 ## The container's port where your application is running (The port of Counter App)
+      targetPort: 80 
   type: LoadBalancer     
 
